@@ -1,59 +1,99 @@
-*{
-        padding: 0;
-        margin: 0;
-}
 body{
-        font-family:"Mumblers Demo";
-        background-color: purple;
+      
+        height: 100vh;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background: conic-gradient(at 125% 50%,#b78cf7, #ff7c94, #ffcf0d, #ff7c94, #b78cf7);
 }
 .container{
-        width: 90%;
-       margin: auto;
-       display: flex; 
-}
-.groceries{
-        border:1px solid black;
-        width: 600px;
-        min-height: 100vh;
+        width: 95%;
+        height: 100vh;
         margin: auto;
-        background: white;
-        box-shadow: 10px 10 px 24px 0 rgba(0,0,0,0.5);
+        display:flex;
+        justify-content: center;
+        align-items: center;
 }
-.groceries h1{
-        font-size: 2.5rem;
-        margin-top: 1em;
+.calculator{
+        border: 1px solid lightgray;
+        background-color: whitesmoke;
+        border-radius: 5px;
+        width: 400px;
+        padding: 0 25px;
+        font-size: 100;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
 }
-.groceries i{
-        font-size: 2rem;
-        color: yellow;
+.calculator input{
+        box-sizing: border-box;
+        width: 90%;
+        padding: 8px;
+        outline:none;
+        border-radius:5px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: whitesmoke;
 }
-.groceries input{
-        font-family: inherit;
-        outline: 0;
-        border: 0;
-        border-bottom: 3px solid black;
-        width: 70%;
-        font-size: 1.5rem;
+.calculator button:hover{
+        background-color: rgba(0,0,0,0.1);
+}
+#quality{
+     width: 100%;
+     padding:8px;
+     outline: none;
+     border-radius:5px;
+     border: 1px solid lightgray;
+}
+
+#tip-amount{
+        visibility: hidden;
+        min-width: 250px;
+        margin:auto;
+        background-color: limegreen;
+        color:white;
+        bottom:30px;
+        text-align: center;
+        border-radius: 2px;
+        padding:16px;
+        position: fixed;
+}
+#tip-amount.show{
+      visibility: visible; 
+      -webkit-animation: fade 0.5s, fadeout 0.5s 2.5s;
+      animation: fadeout 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes fadein{
+        from{bottom:0;}
+        to{bottom:30px; opacity: 1;}
 
 }
-#allItems h2{
-        margin-left: 50px;
-        margin-right: 10px;
-        margin-top:15 ;
-        font-size: 2rem;
+@-webkit-keyframes fadein{
+        from{bottom:0;}
+        to{bottom:30px; opacity: 1;} 
 }
-@media (max-width:480px){
-        .groceries h1{
-                font-size: 2rem;
+
+@keyframes fadein{
+        from{bottom:0;}
+        to{bottom:30px; opacity: 1;}
+        
+}
+@-webkit-keyframes fadeout{
+        from {bottom:30px; opacity: 1;}
+        to {bottom:0;}
+}
+@keyframes fadeout{
+        from {bottom:30px; opacity: 1;}
+        to {bottom:0;}
+}
+@media(max-width:480px){
+        .calculator input{
+                width: 85%;
         }
-        .groceries i{
-                font-size: 1.5rem;
+        .calculator button{
+                width: 15%;
         }
-        .groceries input{
-                font-size: 1rem;
-        }
-        #allItems h2{
-                margin-left: 25px;
-                font-size: 1.5rem;
+}
+@media(max-width:320px){
+        .calculator input{
+                width: 80%;
         }
 }

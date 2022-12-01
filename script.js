@@ -1,23 +1,24 @@
-const groceries=document.getElementsByClassName("groceries")[0];
-const pencil=document.getElementById("pencil");
-const allItems=document.getElementById("allItems");
-const userInput=document.getElementById("userInput");
-pencil.addEventListener("click", function(){
-        allItems.innerHTML="";
-})
-userInput.addEventListener("keydown", function(event){
-        if(event.key=="Enter")
-          addItem();
-          
-})
-function addItem(){
-        let h2=document.createElement("h2");
-        h2.innerHTML="- "+ userInput.value;
-
-        h2.addEventListener("click", function(){
-                h2.style.textDecoration = "line-through";
-                console.log("dfsd")
-        })
-        allItems.insertAdjacentElement("beforeend", h2);
-        userInput.value="";
+const amount=document.getElementById('amount');
+const guests=document.getElementById('guest');
+const quality=document.getElementById('quality');
+const tipAmount=document.getElementById('tip-amount');
+calculate=()=>{
+        const tip=((amount.value*quality.value)/(guest.value)).toFixed(2);
+        amount.value='';
+        guests.value='';
+        quality.value='';
+        if(tip==='Nan'){
+                tipAmount.innerHTML='Tip $0 each';
+                showTipAmount();
+        }
+        else{
+                tipAmount.innerHTML='TIp $'+tip+' each';
+                showTipAmount();
+        }
+}
+showTipAmount=()=>{
+        let x=tipAmount;
+        x.className='show';
+        console.log("x",x);
+        setTimeout(function(){x.className=x.className.replace('show','')},3000)
 }
