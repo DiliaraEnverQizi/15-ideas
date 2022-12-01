@@ -1,17 +1,23 @@
+const groceries=document.getElementsByClassName("groceries")[0];
+const pencil=document.getElementById("pencil");
+const allItems=document.getElementById("allItems");
 const userInput=document.getElementById("userInput");
-let expression='';
+pencil.addEventListener("click", function(){
+        allItems.innerHTML="";
+})
+userInput.addEventListener("keydown", function(event){
+        if(event.key=="Enter")
+          addItem();
+          
+})
+function addItem(){
+        let h2=document.createElement("h2");
+        h2.innerHTML="- "+ userInput.value;
 
-function press(num){
-        expression+=num;
-        userInput.value=expression;
-
-}
-function equal(){
-        userInput.value=eval(expression);
-        expression="";
-} 
-function erase()
-{
-        expression="";
-        userInput.value=expression;
+        h2.addEventListener("click", function(){
+                h2.style.textDecoration = "line-through";
+                console.log("dfsd")
+        })
+        allItems.insertAdjacentElement("beforeend", h2);
+        userInput.value="";
 }
