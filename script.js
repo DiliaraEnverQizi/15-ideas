@@ -1,22 +1,27 @@
-function generate(){
-        let quotes={
-                "- George Bernard Shaw":'"Success does not consist in never making mistakes but in never making the same one a second time."',
-                "- Leonardo da Vinci":'"Simplicity is the ultimate sophistication."',
-                "- Confucius":'"There are three things which the superior man guards against. In youth...lust. When he is strong...quarrelsomeness. When he is old...covetousness."',
-                "- Oscar Wilde":'"Always forgive your enemies; nothing annoys them so much"',
-                "- Steve Jobs":'"Your time is limited, so don’t waste it living someone else’s life"',
-                "- Lucius Annaeus Seneca":'"While we are postponing, life speeds by."',
-                "- Nostradamus":'"Life is a series of choices."',
-                
+let index=0;
+show_image(index);
 
+function show_image(i){
+        index+=i;
+        console.log(index);
+
+        let images=document.getElementsByClassName("image");
+
+        let dots=document.getElementsByClassName("dot");
+
+        for(i=0;i<images.length;i++){
+                images[i].style.display="none";
         }
-        let authors=Object.keys(quotes);
-        console.log(authors);
-        
-        let author=authors[Math.floor(Math.random()*authors.length)]; 
-        console.log(author);
-        let quote =quotes[author];
+        for(i=0;i<dots.length;i++){
+                dots[i].className=dots[i].className.replace(" active","");
+        }
+        if(index>images.length-1){
+                index=0;
+        }
+        if(index<0){
+                index=images.length-1;
+        }
+        images[index].style.display="block";
+        dots[index].className+=" active";
 
-        document.getElementById("quote").innerHTML=quote;
-        document.getElementById("author").innerHTML=author;
 }
